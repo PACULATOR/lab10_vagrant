@@ -1,3 +1,6 @@
+boxname = "vagrant"
+hostname = "vagrant.loc"
+ipaddress = "192.168.42.1"
 Vagrant.configure("2") do |config|
   config.vm.box_download_insecure = true
   config.vm.box = "ubuntu/trusty64"
@@ -11,4 +14,5 @@ Vagrant.configure("2") do |config|
 		vb.memory = "2048"
 	end
   config.vm.provision "shell", path: "provision.sh"
+  config.vm.network :private_network, ip: ipaddress
 end
